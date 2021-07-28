@@ -19,6 +19,9 @@ app.use(logger);
 // dev 말고 네가지 더 있는데 common, short.. 
 // GET / 304 6.432 ms - - 이거 출력되는 양식이 조금씩 다르게 나온다
 
+app.use(express.urlencoded({ extended: true }));
+// 나의 express app이 form의 value들을 이해할 수 있도록 하고
+// 우리가 쓸 수 있는 자바스크립트 형식으로 변형해줌
 
 app.use("/", globalRouter);
 app.use("/videos", videoRouter);
