@@ -1,5 +1,3 @@
-import "./db";
-import "./models/Video";
 import express from "express";
 //same code with const express = require("express");
 import morgan from "morgan";
@@ -8,7 +6,6 @@ import userRouter from "./routers/userRouter";
 import videoRouter from "./routers/videoRouter";
 
 
-const PORT = 4000;
 const app = express();
 const logger = morgan("dev");
 
@@ -30,11 +27,4 @@ app.use("/", globalRouter);
 app.use("/videos", videoRouter);
 app.use("/users", userRouter);
 
-
-////////////////////////////////////////////////////////////
-
-const handleListening = () =>
-    console.log(`✅ Server listening on port http://localhost:${PORT} 🚀`);
-
-app.listen(PORT, handleListening);
-//port : 4000 / 그 다음에는 함수 내용 서술
+export default app;
