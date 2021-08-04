@@ -1,10 +1,14 @@
 extends base
+include mixins/navBar 
+
+block navBar
+    +navBar
 
 block content 
     if errorMessage 
         h3=errorMessage
     form(method="POST")
-        input(name="title", placeholder="Title", required, type="text")
-        input(name="description", placeholder="Description", required, type="text")
+        input(name="title", placeholder="Title", required, type="text", minlength=5, maxlength=80)
+        input(name="description", placeholder="Description", required, type="text", minlength=5, maxlength=140)
         input(name="hashtags", placeholder="Hashtags, separated by comma.", required, type="text")
         input(type="submit", value="Upload Video")
